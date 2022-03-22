@@ -95,6 +95,9 @@ const initWebRouter = (app) => {
 
         }
     })
+    router.get('/public/avatar/:img', (req, res) => {
+        res.render('user/imgrender.ejs', { a: req.params.img })
+    })
     router.post('/saveProfile', upload.single('image'), updateProfile)
     router.post('/ss', (req, res) => {
         res.send(req.body)
