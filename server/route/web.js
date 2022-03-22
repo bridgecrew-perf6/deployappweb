@@ -75,7 +75,7 @@ const initWebRouter = (app) => {
     router.get('/logout', (req, res) => {
         res.render("user/logout.ejs")
     })
-    router.post('/check-logout', async (req, res) => {
+    router.post('/check-res', async (req, res) => {
 
         const { username, password, rePassword, email } = req.body
 
