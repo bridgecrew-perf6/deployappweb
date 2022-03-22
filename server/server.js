@@ -1,6 +1,8 @@
 import express from "express";
 import viewEngine from "./configs/viewEngine";
 import { initWebRouter } from "./route/web";
+import initAPI from "./route/api";
+
 import api from './route/api'
 import multer from 'multer'
 import path from "path"
@@ -20,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 viewEngine(app);
 initWebRouter(app);
-
+initAPI(app)
 
 
 
