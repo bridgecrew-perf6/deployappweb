@@ -16,12 +16,16 @@ const initAPI = (app) => {
     })
 
     router.get("/img/:nameImg", (req, res) => {
+        res.set('Access-Control-Allow-Origin', '*');
+
         res.sendFile(path.resolve('./public/images/' + req.params.nameImg))
     })
 
     router.post('/getLogin', async (req, res) => {
         let username = req.body.username;
         let password = req.body.password;
+        res.set('Access-Control-Allow-Origin', '*');
+
         const [rows, results] = await pool.query('SELECT * FROM user WHERE username = ? AND password = ?', [username, password]);
         res.status(200).json({ data: rows })
 
